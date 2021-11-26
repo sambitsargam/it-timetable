@@ -1,110 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  
-    <title>Timetable</title>
-</head>
-  <body>
-    <style>
-        table.customTable {
-          width: 100px;
-          background-color: #FFEED4;
-          border-collapse: collapse;
-          border-width: 3px;
-          border-color: #7EA8F8;
-          border-style: double;
-          color: #FF21C4;
-        }
-        
-        table.customTable td, table.customTable th {
-          border-width: 3px;
-          border-color: #7EA8F8;
-          border-style: double;
-          padding: 6px;
-        }
-        
-        table.customTable thead {
-          background-color: #7EA8F8;
-        }
-        </style>
-        
+  <head>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-       
-        <table>
-          <thead>
-            <tr>
-              <th>DAY</th>
-              <th>9:50-10:50</th>
-              <th>11:00-12:00</th>
-              <th>12:10-1:10</th>
-              <th>1:10-2:00</th>
-              <th>2:00-3:00</th>
-              <th>3:00-4:00</th>
-              <th>4:00-5:00</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>MONDAY</td>
-              <td>OB</td>
-              <td>MATH-III</td>
-              <td>PCC-2</td>
-              <td>LUNCH</td>
-              <td>EVS SEC-A[IT]</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-                <td>TUESDAY</td>
-                <td>OB</td>
-                <td>PCC-1</td>
-                <td>PCC-2</td>
-                <td>LUNCH</td>
-                <td>DEC LAB(ATR 411)</td>
-                <td>DEC LAB</td>
-                <td>EVS SEC-A[IT]</td>
-              </tr>
-              <tr>
-                <td>WEDNESDAY</td>
-                <td>DS</td>
-                <td>DEC</td>
-                <td>MATH-III</td>
-                <td>LUNCH</td>
-                <td></td>
-                <td></td>
-                <td>EVS SEC-B[IT]</td>
-              </tr>
-              <tr>
-                <td>THURSDAY</td>
-                <td>PCC-1</td>
-                <td>DEC</td>
-                <td>OB</td>
-                <td>LUNCH</td>
-                <td></td>
-                <td>CNDC LAB(GAL 303)</td>
-                <td>CNDC LAB</td>
-              </tr>
-              <tr>
-                <td>FRIDAY</td>
-                <td>DS</td>
-                <td>DEC</td>
-                <td>MATH-III</td>
-                <td>LUNCH</td>
-                <td>EVS SEC-B[IT]</td>
-                <td>DS LAB(ATR-CC)</td>
-                <td>DS LAB</td>
-              </tr>
-              <tr>
-                <td>SATURDAY</td>
-                <td>PCC-1</td>
-                <td>DS</td>
-                <td>PCC-2</td>
-                <td>LUNCH</td>
-                <td>ATTP GAL</td>
-                <td>DBMS LAB(GAL-302)</td>
-                <td>DBMS LAB</td>
-              </tr>
-          </tbody>
-        </table>
-</body>
+   
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    
+    <link
+      rel="stylesheet"
+      href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+    />
+    <link rel="icon" href="images/logo.png" />
+
+    <title>IT Section  | TimeTable</title>
+    <style>
+      td {
+        text-align: center !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/"
+          ><img src="/images/logo.png" alt="" width="25px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/about.html"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://sambitsargam.study">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container my-5">
+      <h1 class="text-dark text-center my-3">Information Technology TimeTable</h1>
+      <table class="table table-hover table-dark table-hover text-light" id="myTable" >
+        <thead >
+          <tr>
+            <th scope="col">Day</th>
+            <th scope="col">9.50AM-10.50AM</th>
+            <th scope="col">11AM-12AM</th>
+            <th scope="col">12.10PM-1.10PM</th>
+            <th scope="col">1.10PM-2PM</th>
+            <th scope="col">2PM-3PM</th>
+            <th scope="col">3PM-4PM</th>
+            <th scope="col">4PM-5PM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">MONDAY</th>
+            <td>OB</td>
+            <td>MATH-III</td>
+            <td>PCC-2</td>
+            <td class="text-center">-</td>
+            <td>EVS SEC-A[IT]</td>
+            <td colspan="2" class="text-center">
+                 -                        -
+              </td>
+          </tr>
+          <tr>
+            <th scope="row">TUESDAY</th>
+            <td>OB</td>
+            <td>PCC-1</td>
+            <td>PCC-2</td>
+            <td class="text-center">-</td>
+            <td colspan="2" class="text-center">
+             DEC LAB(ATR 411)
+            </td>
+            <td>EVS SEC-A[IT]</td>
+          </tr>
+          <tr>
+            <th scope="row">WEDNESDAY</th>
+            <td>DS</td>
+            <td>DEC</td>
+            <td>MATH-III</td>
+            <td class="text-center">-</td>
+             <td colspan="2" class="text-center">
+              --
+            </td>
+            <td>EVS SEC-B[IT]</td>
+          </tr>
+          <tr>
+            <th scope="row">THURSDAY</th>
+            <td>PCC-1</td>
+            <td>DEC</td>
+            <td>OB</td>
+            <td class="text-center">LUNCH BREAK</td>
+            <td>-</td>
+            <td colspan="2" class="text-center">
+             CNDC LAB(GAL 303)
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">FRIDAY</th>
+            <td>DS</td>
+            <td>DEC</td>
+            <td>MATH-III</td>
+            <td class="text-center">-</td>
+            <td>EVS SEC-B[IT]</td>
+            <td colspan="2" class="text-center">
+          DS LAB(ATR-CC)
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">SATURDAY</th>
+            <td>PCC-1</td>
+            <td>DS</td>
+            <td>PCC-2</td>
+            <td class="text-center">-</td>
+            <td>ATTP(GAL)</td>
+            <td colspan="2" class="text-center">
+           DBMS LAB(GAL-302)
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#myTable").DataTable();
+      });
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
 </html>
